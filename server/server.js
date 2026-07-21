@@ -52,27 +52,47 @@ app.get("/tasks",(req,res)=>{
 // CREATE TASK
 app.post("/tasks",(req,res)=>{
 
-    const tasks = getTasks();
+
+const tasks = getTasks();
 
 
-    const newTask = {
-
-        id: Date.now(),
-
-        title:req.body.title,
-
-        completed:false
-
-    };
+const {title}=req.body;
 
 
-    tasks.push(newTask);
+
+if(!title || title.trim()===""){
+
+    return res.status(400)
+    .json({
+        message:"Task title is required"
+    });
+
+}
 
 
-    saveTasks(tasks);
+
+const newTask={
+
+id:Date.now(),
+
+title:title,
+
+completed:false
+
+};
 
 
-    res.json(newTask);
+
+tasks.push(newTask);
+
+
+saveTasks(tasks);
+
+
+res.status(201)
+.json(newTask);
+
+
 
 });
 

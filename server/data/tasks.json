@@ -2,16 +2,16 @@
   {
     "id": 1784628828559,
     "title": "Learn Docker",
-    "completed": false
-  },
-  {
-    "id": 1784628997514,
-    "title": "",
-    "completed": false
+    "completed": true
   },
   {
     "id": 1784629021947,
     "title": "Learn Devops",
+    "completed": false
+  },
+  {
+    "id": 1784629500793,
+    "title": "Revise CI/CD ",
     "completed": false
   }
 ]
