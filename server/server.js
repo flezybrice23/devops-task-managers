@@ -46,6 +46,14 @@ app.get("/tasks",(req,res)=>{
 
 });
 
+app.get("/", (req,res)=>{
+
+    res.json({
+        message:"Task Manager API is running"
+    });
+
+});
+
 
 
 
