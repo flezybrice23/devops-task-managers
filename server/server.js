@@ -180,3 +180,12 @@ console.log(
 );
 
 });
+
+app.get("/health",(req,res)=>{
+
+    res.json({
+        status:"ok",
+        service:"task-manager-backend"
+    });
+
+});
