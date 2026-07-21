@@ -1,28 +1,19 @@
 import {useEffect,useState} from "react";
 
-
 function App(){
 
-
 const API="http://localhost:5000";
-
 
 const [tasks,setTasks]=useState([]);
 
 const [title,setTitle]=useState("");
 
-
-
-
 // Load Tasks
-
 useEffect(()=>{
 
 loadTasks();
 
 },[]);
-
-
 
 function loadTasks(){
 
@@ -34,17 +25,11 @@ fetch(`${API}/tasks`)
 
 }
 
-
-
-
 // Add Task
 
 function addTask(){
 
-
 if(!title.trim()) return;
-
-
 
 fetch(`${API}/tasks`,
 {
@@ -61,7 +46,6 @@ title:title
 
 })
 
-
 .then(res=>res.json())
 
 .then(()=>{
@@ -75,14 +59,9 @@ loadTasks();
 
 }
 
-
-
-
 // Complete Task
 
-
 function completeTask(task){
-
 
 fetch(
 `${API}/tasks/${task.id}`,
@@ -108,15 +87,9 @@ completed:!task.completed
 
 }
 
-
-
-
-
 // Delete Task
 
-
 function deleteTask(id){
-
 
 fetch(
 `${API}/tasks/${id}`,
@@ -131,8 +104,6 @@ method:"DELETE"
 
 }
 
-
-
 return (
 
 <div style={{
@@ -145,10 +116,7 @@ fontFamily:"Arial"
 🚀 DevOps Task Manager
 </h1>
 
-
-
 <div>
-
 
 <input
 
@@ -160,30 +128,21 @@ e=>setTitle(e.target.value)
 
 placeholder="Enter task"
 
-
 />
-
-
 
 <button onClick={addTask}>
 Add Task
 </button>
 
-
 </div>
-
-
 
 <h2>
 My Tasks
 </h2>
 
-
-
 {
 
 tasks.map(task=>(
-
 
 <div
 
@@ -204,8 +163,6 @@ justifyContent:"space-between"
 }}
 
 >
-
-
 <span
 
 style={{
@@ -222,8 +179,6 @@ task.completed?
 {task.title}
 
 </span>
-
-
 
 <div>
 
@@ -243,9 +198,6 @@ task.completed?
 }
 
 </button>
-
-
-
 
 <button
 
@@ -281,7 +233,5 @@ Delete
 
 
 }
-
-
 
 export default App;

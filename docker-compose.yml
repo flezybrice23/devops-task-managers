@@ -1,0 +1,38 @@
+version: "3.8"
+
+
+services:
+
+
+  backend:
+
+    build:
+      context: ./server
+
+    container_name: task-manager-backend
+
+    ports:
+      - "5000:5000"
+
+
+    volumes:
+      - ./server/data:/app/data
+
+
+
+  frontend:
+
+    build:
+      context: ./client
+
+
+    container_name: task-manager-frontend
+
+
+    ports:
+      - "5173:80"
+
+
+    depends_on:
+
+      - backend
